@@ -92,8 +92,31 @@ function hitungAsupan(){total.entD=calcPick(ENTERAL_DEWASA,'entDSelect','entDVol
 function holiday(bb){if(!bb)return 0;if(bb<=10)return bb*100;if(bb<=20)return 1000+(bb-10)*50;return 1500+(bb-20)*20}
 function hitungCairan(){$('holTotal').value=satu(holiday(num('holBb')));$('khTotal').value=satu(num('khBb')*num('khMl')+num('khTambah'));$('ckdTotal').value=satu(num('ckdUrine')+500);$('iwlTotal').value=satu(num('iwlBb')*12*(1+Math.max(0,num('iwlSuhu')-37)*0.1));$('bsaTotal').value=satu(Math.sqrt(num('bsaBb')*num('bsaTb')/3600)*800*(1+Math.max(0,num('bsaSuhu')-37)*0.1));$('tpmTotal').value=satu(num('tpm')*1440/num('tetes'));$('girHasil').value=satu(num('girBb')?num('girDex')*10*num('girLaju')/(num('girBb')*60):0)}
 function hitungMonitoring(){const enteral={e:total.entD.e+total.entA.e,p:total.entD.p+total.entA.p,l:total.entD.l+total.entA.l,k:total.entD.k+total.entA.k},oral={e:total.oral.e+total.recall.e,p:total.oral.p+total.recall.p,l:total.oral.l+total.recall.l,k:total.oral.k+total.recall.k},all={e:enteral.e+oral.e+total.pn.e,p:enteral.p+oral.p+total.pn.p,l:enteral.l+oral.l+total.pn.l,k:enteral.k+oral.k+total.pn.k},pct={e:need.e?all.e/need.e*100:0,p:need.p?all.p/need.p*100:0,l:need.l?all.l/need.l*100:0,k:need.k?all.k/need.k*100:0};const tr=(nm,o)=>`<tr><td>${nm}</td><td>${satu(o.e)}</td><td>${satu(o.p)}</td><td>${satu(o.l)}</td><td>${satu(o.k)}</td></tr>`;$('monitorRows').innerHTML=[tr('Pemenuhan Diet Parenteral',total.pn),tr('Pemenuhan Diet Oral',oral),tr('Pemenuhan Diet Enteral',enteral),tr('<b>Total Pemenuhan</b>',all),tr(`<b>Total Kebutuhan Pasien</b><br><small>${need.source}</small>`,need),tr('<b>% Pemenuhan</b>',pct)].join('')}
-function hitung(){hitungAntro();hitungAnak();hitungNeed();hitungAsupan();hitungCairan();hitungMonitoring()}
-fill();document.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',hitung));hitung();
+let imt = 0;
+let imtT = 0;
+
+function hitung(){
+  const bb = num('bb');
+  const tb = num('tb');
+
+  imt = bb && tb ? bb / ((tb / 100) ** 2) : 0;
+  imtT = num('imtTarget');
+
+  hitungAntro();
+  hitungAnak();
+  hitungNeed();
+  hitungAsupan();
+  hitungCairan();
+  hitungMonitoring();
+}
+
+fill();
+
+document.querySelectorAll('input,select').forEach(el=>{
+  el.addEventListener('input',hitung);
+});
+
+hitung();
 
 
 // Tab navigation
