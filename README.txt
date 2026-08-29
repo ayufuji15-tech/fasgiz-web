@@ -16,7 +16,7 @@ Catatan final v1.0:
   18,5–25,0 = Normal
   >25,0–27,0 = Overweight
   >27,0 = Obesitas
-- BBI Brocca Modifikasi Asia = (TB - 100) × 0,9.
+- BBI Brocca = (TB - 100) × 0,9.
 - Recall URT memiliki 4 pilihan dropdown dengan total otomatis.
 - Asupan dilengkapi satuan: energi kkal, protein gr, lemak gr, KH gr.
 
