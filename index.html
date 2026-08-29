@@ -210,35 +210,16 @@
 
 <header class="hero">
   <div><h1>FASGIZ</h1><p>Fitur Asesmen Gizi · Menghitung Lebih Cepat, Melayani Lebih Tepat</p></div>
-  <div class="hero-actions"><button class="ghost" onclick="location.reload()">Reset</button><button class="ghost" onclick="window.print()">Cetak / Simpan PDF</button><button class="ghost" onclick="logoutNutricalc()">Logout</button></div>
+  <div class="hero-actions"><button class="ghost" onclick="resetFasgiz()">Reset</button><button class="ghost" onclick="window.print()">Cetak / Simpan PDF</button><button class="ghost" onclick="logoutNutricalc()">Logout</button></div>
 </header>
 <main class="page">
 <nav class="tabs" aria-label="Navigasi FASGIZ">
-
-  <button type="button" class="tab-btn active" data-tab="antropometri">
-    Antropometri
-  </button>
-
-  <button type="button" class="tab-btn" data-tab="kebutuhan">
-    Kebutuhan Gizi
-  </button>
-
-  <button type="button" class="tab-btn" data-tab="asupan">
-    Asupan
-  </button>
-
-  <button type="button" class="tab-btn" data-tab="cairan">
-    Cairan
-  </button>
-
-  <button type="button" class="tab-btn" data-tab="pemenuhan">
-    % Pemenuhan
-  </button>
-
-  <button type="button" class="tab-btn" data-tab="diabetes">
-    Diabetes &amp; Insulin
-  </button>
-
+  <button class="tab-btn active" data-tab="antropometri">Antropometri</button>
+  <button class="tab-btn " data-tab="kebutuhan">Kebutuhan Gizi</button>
+  <button class="tab-btn " data-tab="asupan">Asupan</button>
+  <button class="tab-btn " data-tab="cairan">Cairan</button>
+  <button class="tab-btn " data-tab="pemenuhan">% Pemenuhan</button>
+  <button class="tab-btn " data-tab="diabetes">Diabetes & Insulin</button>
 </nav>
 <section class="tab-panel active" id="tab-antropometri">
   <div class="section-body">
@@ -252,15 +233,7 @@
 <label>BB sebelum masuk RS (kg)<input id="bbSebelum" type="number" step="0.1"></label>
 <label>Lingkar betis (cm)<input id="betis" type="number" step="0.1"></label>
 <label>Tinggi lutut (cm)<input id="tl" type="number" step="0.1"></label>
-<label>
-  IMT Estimasi dr LILA
-  <input
-    id="imtLila"
-    type="text"
-    placeholder="Otomatis berdasarkan LILA"
-    readonly
-  />
-</label>
+<label>IMT Estimasi dr LILA<input id="imtLila" type="text" placeholder="Otomatis berdasarkan LILA" readonly></label>
 </div><div class="table-wrap"><table><thead><tr><th>Output</th><th>Hasil</th><th>Satuan</th></tr></thead><tbody id="antroRows"></tbody></table></div></section>
 <section class="card"><h2>Antropometri Anak</h2><div class="grid four">
 <label>Jenis Kelamin<select id="anakJk"><option>Laki-laki</option><option>Perempuan</option></select></label>
@@ -285,16 +258,16 @@
 <label>Jenis Kelamin<select id="ndJk"><option>Laki-laki</option><option>Perempuan</option></select></label><label>Umur (tahun)<input id="ndUsia" type="number" value="40"></label><label>BB saat ini (kg)<input id="ndBb" type="number" step="0.1" value="60"></label><label>TB (cm)<input id="ndTb" type="number" step="0.1" value="160"></label><label>BBI Brocca Modifikasi Asia (kg)<input id="ndBbi" readonly></label><label>% Protein<input id="ndProtPct" type="number" value="15"></label><label>% Lemak<input id="ndLemakPct" type="number" value="25"></label><label>AF<select id="ndAf" class="af"></select></label><label>SF<select id="ndSf" class="sf"></select></label><label>Rumus cepat<select id="fastKkal"><option value="25">25 kkal/kgBBI</option><option value="30" selected>30 kkal/kgBBI</option><option value="35">35 kkal/kgBBI</option></select></label>
 </div><div class="table-wrap"><table><thead><tr><th>Rumus</th><th>BMR</th><th>TEE</th><th>Protein</th><th>Lemak</th><th>KH</th><th></th></tr></thead><tbody id="ndRows"></tbody></table></div></section>
 <section class="card"><h2>Kebutuhan Critical Ill Anak — Schofield</h2><div class="grid four"><label>JK<select id="schJk"><option>Perempuan</option><option>Laki-laki</option></select></label><label>Kategori Usia<select id="schKat"><option value="lt3">&lt; 3 tahun</option><option value="3to10">3–10 tahun</option><option value="10to18">10–18 tahun</option></select></label><label>BB (kg)<input id="schBb" type="number" step="0.1" value="10"></label><label>TB (m)<input id="schTb" type="number" step="0.01" value="0.93"></label><label>Protein (g/kg)<input id="schProtKg" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th></tr></thead><tbody id="schRows"></tbody></table></div></section>
-<section class="card"><h2>Kebutuhan Anak Berdasarkan RDA</h2><div class="grid three"><label>Usia<select id="rdaUsia"><option value="120">0–6 bulan</option><option value="110">6–12 bulan</option><option value="100">1–3 tahun</option><option value="90">4–6 tahun</option><option value="80">7–9 tahun</option><option value="60">1–12 tahun</option><option value="40">12–18 tahun</option></select></label><label>BB (kg)<input id="rdaBb" type="number" step="0.1" value="10"></label><label>Protein (g/kg)<input id="rdaProtKg" type="number" step="0.1" value="1.5"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th></tr></thead><tbody id="rdaRows"></tbody></table></div></section>
+<section class="card"><h2>Kebutuhan Anak Berdasarkan RDA</h2><div class="grid three"><label>Usia<select id="rdaUsia"><option value="120">0–6 bulan</option><option value="110">6–12 bulan</option><option value="100">1–3 tahun</option><option value="90">4–6 tahun</option><option value="80">7–9 tahun</option><option value="50,70">1–12 tahun</option><option value="40,60">12–18 tahun</option></select></label><label>BB (kg)<input id="rdaBb" type="number" step="0.1" value="10"></label><label>Protein (g/kg)<input id="rdaProtKg" type="number" step="0.1" value="1.5"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th></tr></thead><tbody id="rdaRows"></tbody></table></div></section>
 <section class="card"><h2>Kebutuhan Anak Ventilator</h2><div class="grid three"><label>Kategori<select id="ventKat"><option value="20,25">Ventilator stabil</option><option value="25,30">Ventilator + stres sedang</option><option value="30,35">Ventilator anak kritis</option></select></label><label>BB (kg)<input id="ventBb" type="number" step="0.1" value="10"></label><label>Protein (g/kg)<input id="ventProtKg" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th></tr></thead><tbody id="ventRows"></tbody></table></div></section>
   </div>
 </section>
 <section class="tab-panel " id="tab-asupan">
   <div class="section-body">
-<section class="card"><h2>Enteral Dewasa</h2><div class="grid two"><label>Jenis enteral<select id="entDSelect"></select></label><label>Volume (ml)<input id="entDVol" type="number" step="0.1" value="0"></label></div><table class="small"><tbody><tr><td>Energi (kkal)</td><td id="entDE">0,0</td><td>Protein (gr)</td><td id="entDP">0,0</td><td>Lemak (gr)</td><td id="entDL">0,0</td><td>KH (gr)</td><td id="entDK">0,0</td></tr></tbody></table></section>
-<section class="card"><h2>Enteral Anak</h2><div class="grid two"><label>Jenis enteral anak<select id="entASelect"></select></label><label>Volume (ml)<input id="entAVol" type="number" step="0.1" value="0"></label></div><table class="small"><tbody><tr><td>Energi (kkal)</td><td id="entAE">0,0</td><td>Protein (gr)</td><td id="entAP">0,0</td><td>Lemak (gr)</td><td id="entAL">0,0</td><td>KH (gr)</td><td id="entAK">0,0</td></tr></tbody></table></section>
+<section class="card"><h2>Enteral Dewasa</h2><div class="grid two"><label>Jenis enteral<select id="entDSelect"></select></label><label>Volume (ml)<input id="entDVol" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th><th>Lemak (gr)</th><th>KH (gr)</th></tr></thead><tbody><tr><td id="entDE">0,0</td><td id="entDP">0,0</td><td id="entDL">0,0</td><td id="entDK">0,0</td></tr></tbody></table></div></section>
+<section class="card"><h2>Enteral Anak</h2><div class="grid two"><label>Jenis enteral anak<select id="entASelect"></select></label><label>Volume (ml)<input id="entAVol" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th><th>Lemak (gr)</th><th>KH (gr)</th></tr></thead><tbody><tr><td id="entAE">0,0</td><td id="entAP">0,0</td><td id="entAL">0,0</td><td id="entAK">0,0</td></tr></tbody></table></div></section>
 <section class="card"><h2>Parenteral</h2><div class="grid two"><label>Jenis parenteral<select id="pnSelect"></select></label><label>Volume (ml)<input id="pnVol" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th><th>Lemak (gr)</th><th>KH (gr)</th><th>Osmolaritas</th><th>Natrium</th><th>Kalium</th><th>Sediaan</th></tr></thead><tbody><tr><td id="pnE">0,0</td><td id="pnP">0,0</td><td id="pnL">0,0</td><td id="pnK">0,0</td><td id="pnOsm">0,0</td><td id="pnNa">0,0</td><td id="pnKalium">0,0</td><td id="pnSed">-</td></tr></tbody></table></div></section>
-<section class="card"><h2>Diet Oral</h2><div class="grid two"><label>Jenis diet<select id="oralSelect"></select></label><label>Kebutuhan / jumlah<input id="oralJumlah" type="number" step="0.1" value="0"></label></div><table class="small"><tbody><tr><td>Energi (kkal)</td><td id="oralE">0,0</td><td>Protein (gr)</td><td id="oralP">0,0</td><td>Lemak (gr)</td><td id="oralL">0,0</td><td>KH (gr)</td><td id="oralK">0,0</td></tr></tbody></table></section>
+<section class="card"><h2>Diet Oral</h2><div class="grid two"><label>Jenis diet<select id="oralSelect"></select></label><label>Kebutuhan / jumlah<input id="oralJumlah" type="number" step="0.1" value="0"></label></div><div class="table-wrap"><table><thead><tr><th>Energi (kkal)</th><th>Protein (gr)</th><th>Lemak (gr)</th><th>KH (gr)</th></tr></thead><tbody><tr><td id="oralE">0,0</td><td id="oralP">0,0</td><td id="oralL">0,0</td><td id="oralK">0,0</td></tr></tbody></table></div></section>
 <section class="card"><h2>Recall URT</h2>
 <div class="table-wrap"><table><thead><tr><th>Jenis</th><th>Jumlah/hari</th><th>Energi (kkal)</th><th>Protein (gr)</th><th>Lemak (gr)</th><th>KH (gr)</th></tr></thead><tbody id="recallRows"></tbody><tfoot><tr><th>Total</th><th id="recallPorsi">0,0</th><th id="recallE">0,0</th><th id="recallP">0,0</th><th id="recallL">0,0</th><th id="recallK">0,0</th></tr></tfoot></table></div></section>
   </div>
@@ -365,57 +338,6 @@
       }
     });
   });
-</script>
-  <script>
-(function(){
-
-  function bukaTab(nama, tombol){
-
-    document.querySelectorAll('.tab-panel').forEach(function(panel){
-      panel.classList.remove('active');
-      panel.style.display = 'none';
-    });
-
-    document.querySelectorAll('.tab-btn').forEach(function(btn){
-      btn.classList.remove('active');
-    });
-
-    const target = document.getElementById('tab-' + nama);
-
-    if(target){
-      target.classList.add('active');
-      target.style.display = 'block';
-    }
-
-    if(tombol){
-      tombol.classList.add('active');
-    }
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  document.querySelectorAll('.tab-btn').forEach(function(btn){
-
-    btn.style.pointerEvents = 'auto';
-    btn.style.cursor = 'pointer';
-
-    btn.addEventListener('click', function(event){
-
-      event.preventDefault();
-
-      bukaTab(
-        btn.getAttribute('data-tab'),
-        btn
-      );
-
-    });
-
-  });
-
-})();
 </script>
 </body>
 </html>
