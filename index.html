@@ -233,7 +233,15 @@
 <label>BB sebelum masuk RS (kg)<input id="bbSebelum" type="number" step="0.1"></label>
 <label>Lingkar betis (cm)<input id="betis" type="number" step="0.1"></label>
 <label>Tinggi lutut (cm)<input id="tl" type="number" step="0.1"></label>
-<label>IMT target untuk BBI<input id="imtTarget" type="number" step="0.1" value="22"></label>
+<label>
+  IMT Estimasi dr LILA
+  <input
+    id="imtLila"
+    type="text"
+    placeholder="Otomatis berdasarkan LILA"
+    readonly
+  />
+</label>
 </div><div class="table-wrap"><table><thead><tr><th>Output</th><th>Hasil</th><th>Satuan</th></tr></thead><tbody id="antroRows"></tbody></table></div></section>
 <section class="card"><h2>Antropometri Anak</h2><div class="grid four">
 <label>Jenis Kelamin<select id="anakJk"><option>Laki-laki</option><option>Perempuan</option></select></label>
