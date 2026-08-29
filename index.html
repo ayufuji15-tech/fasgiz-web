@@ -213,13 +213,94 @@
   <div class="hero-actions"><button class="ghost" onclick="location.reload()">Reset</button><button class="ghost" onclick="window.print()">Cetak / Simpan PDF</button><button class="ghost" onclick="logoutNutricalc()">Logout</button></div>
 </header>
 <main class="page">
-<nav class="tabs" aria-label="Navigasi FASGIZ">
-  <button class="tab-btn active" data-tab="antropometri">Antropometri</button>
-  <button class="tab-btn " data-tab="kebutuhan">Kebutuhan Gizi</button>
-  <button class="tab-btn " data-tab="asupan">Asupan</button>
-  <button class="tab-btn " data-tab="cairan">Cairan</button>
-  <button class="tab-btn " data-tab="pemenuhan">% Pemenuhan</button>
-  <button class="tab-btn " data-tab="diabetes">Diabetes & Insulin</button>
+<nav class="tabs"
+     aria-label="Navigasi FASGIZ"
+     style="position:relative;z-index:9999;pointer-events:auto!important;">
+
+  <button
+    type="button"
+    class="tab-btn active"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-antropometri').style.display='block';
+      document.getElementById('tab-antropometri').classList.add('active');
+      this.classList.add('active');
+    ">
+    Antropometri
+  </button>
+
+  <button
+    type="button"
+    class="tab-btn"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-kebutuhan').style.display='block';
+      document.getElementById('tab-kebutuhan').classList.add('active');
+      this.classList.add('active');
+    ">
+    Kebutuhan Gizi
+  </button>
+
+  <button
+    type="button"
+    class="tab-btn"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-asupan').style.display='block';
+      document.getElementById('tab-asupan').classList.add('active');
+      this.classList.add('active');
+    ">
+    Asupan
+  </button>
+
+  <button
+    type="button"
+    class="tab-btn"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-cairan').style.display='block';
+      document.getElementById('tab-cairan').classList.add('active');
+      this.classList.add('active');
+    ">
+    Cairan
+  </button>
+
+  <button
+    type="button"
+    class="tab-btn"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-pemenuhan').style.display='block';
+      document.getElementById('tab-pemenuhan').classList.add('active');
+      this.classList.add('active');
+    ">
+    % Pemenuhan
+  </button>
+
+  <button
+    type="button"
+    class="tab-btn"
+    style="position:relative;z-index:10000;pointer-events:auto!important;"
+    onclick="
+      document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.getElementById('tab-diabetes').style.display='block';
+      document.getElementById('tab-diabetes').classList.add('active');
+      this.classList.add('active');
+    ">
+    Diabetes &amp; Insulin
+  </button>
+
 </nav>
 <section class="tab-panel active" id="tab-antropometri">
   <div class="section-body">
