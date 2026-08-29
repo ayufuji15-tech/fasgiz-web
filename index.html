@@ -347,5 +347,56 @@
     });
   });
 </script>
+  <script>
+(function(){
+
+  function bukaTab(nama, tombol){
+
+    document.querySelectorAll('.tab-panel').forEach(function(panel){
+      panel.classList.remove('active');
+      panel.style.display = 'none';
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(function(btn){
+      btn.classList.remove('active');
+    });
+
+    const target = document.getElementById('tab-' + nama);
+
+    if(target){
+      target.classList.add('active');
+      target.style.display = 'block';
+    }
+
+    if(tombol){
+      tombol.classList.add('active');
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+
+    btn.style.pointerEvents = 'auto';
+    btn.style.cursor = 'pointer';
+
+    btn.addEventListener('click', function(event){
+
+      event.preventDefault();
+
+      bukaTab(
+        btn.getAttribute('data-tab'),
+        btn
+      );
+
+    });
+
+  });
+
+})();
+</script>
 </body>
 </html>
