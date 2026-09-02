@@ -502,11 +502,25 @@ function hitungAntro(){
     $('imtLila').value=imtLila ? satu(imtLila) : '';
   }
 
-  // BBI Brocca Modifikasi Asia
-  const bbi=brocca(jk,tb);
+ // BBI Brocca Modifikasi Asia
+const bbi=brocca(jk,tb);
 
-  // BBI sederhana TB - 100
-  const bbiTb100=tb ? tb-100 : 0;
+  // BBI Broca (Kriteria TB, Usia, -10%)
+let bbiBroca=0;
+
+if(tb){
+  if(
+    (jk==='Perempuan' && tb<150) ||
+    (jk==='Laki-laki' && tb<160) ||
+    u>40
+  ){
+    bbiBroca=tb-100;
+  }else{
+    bbiBroca=(tb-100)-(0.10*(tb-100));
+  }
+}
+// BBI sederhana TB - 100
+const bbiTb100=tb ? tb-100 : 0;
 
   // BB Adjusted sesuai master Excel
   const adj=(bb&&bbi)
@@ -585,7 +599,8 @@ function hitungAntro(){
     row('Status gizi berdasarkan IMT',interpretImtDewasa(imt),''),
     row('% LILA/U',pctLila?satu(pctLila):'0,0','%'),
     row('BBI Brocca Modifikasi Asia',satu(bbi),'kg'),
-    row('BBI TB−100',satu(bbiTb100),'kg'),
+row('BBI Broca (Kriteria TB, Usia, -10%)',satu(bbiBroca),'kg'),
+row('BBI TB−100',satu(bbiTb100),'kg'),
     row('IMT Estimasi dari LILA',imtLila?satu(imtLila):'0,0','kg/m²'),
     row('BB Adjusted',satu(adj),'kg'),
     row('% perubahan BB',satu(pct),'%'),
